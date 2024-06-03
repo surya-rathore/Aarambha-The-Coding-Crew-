@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.works{
+    text-decoration: none; 
+    color: #333;  /*#DE7CFF */
+    margin-right: 25px;
+    cursor:pointer;
+    width: 110px;
+    background-color: white;
+    border: 1.5px solid black ;
+    border-radius: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.works:hover{
+    transition: 0.5s;
+    background-color: purple;
+    color: white;
+}
+
+.contact{
+    text-decoration: none; 
+    color: #333;  /*#DE7CFF */
+    margin-right: 25px;
+    cursor:pointer;
+    width: 110px;
+    background-color: white;
+    border: 1.5px solid black ;
+    border-radius: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.contact:hover{
+    transition: 0.5s;
+    background-color: purple;
+    color: white;
+}
+
+.admin{
+    text-decoration: none; 
+    color: #333;  /*#DE7CFF */
+    margin-right: 25px;
+    cursor:pointer;
+    width: 110px;
+    background-color: white;
+    border: 1.5px solid black ;
+    border-radius: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.admin:hover{
+    transition: 0.5s;
+    background-color: purple;
+    color: white;
+}
+
+.login{
+    margin-right: 30px;
+    cursor:pointer;
+    width: 110px;
+    /* margin-right: -50px; */
+    background-color: purple;
+    color: white;
+    border: 1.5px solid black ;
+    border-radius: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.login:hover{
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+    transform: scale(1.2);
+}
+
+.main_container{
+    border: 1px solid black;
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+
+
+.content_box {
+    /* border: 1px solid red; */
+    width: 600px;
+    height: 300px;
+    display: grid;
+}
+.homemain_heading_box{
+    margin-top: 30px;
+}
+.homemain_paragraph_box{
+    margin-bottom: 0px;
+}
+.startedbtn_box{
+    margin-bottom: 60px;
+}
+#heading{
+    font-size: 40px;
+}
+
+.startbtn{
+    /* position: absolute; */
+    color: white;
+    /* left: 3%; */
+    /* margin-right:70px ;  */
+    cursor:pointer;
+    width: 130px;
+    height: 35px;
+    /* margin-left: 40px; */
+    background-color: purple;
+    border: 1.5px solid black ;
+    border-radius: 35px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.startbtn:hover{
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+    transform: scale(1.2);
+}
+.sideimg{
+    width: 350px;
+    height: 350px;
+    border-radius: 10%;
+}
+/* @media only screen and(max-width:700px){
+    .content{
+        flex-wrap: wrap;
+    }
+}
+@media only screen and(max-width:400px){
+    body{
+        text-align: center;
+    }
+    
+}   
+@media only screen and(max-width:400px){
+    .sideimg{
+        image-resolution:inherit;
+    }
+    
+}  */
