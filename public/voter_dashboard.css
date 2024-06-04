@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+  }/*
+    box-sizing: border-box;
+    font-family: Poppins;
+  } */
+  *{
+    text-decoration: none;
+  }
+  .navbar{
+    background: #0979f2;
+    font-family: calibri; 
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 70px;
+    padding-top: 20px;
+   
+  
+  }
+  .navdiv{
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+  }
+  .logo a{
+    font-size: 40px; 
+    font-weight: 600; 
+    color: rgb(0, 0, 0);
+  }
+  button{
+    margin-left: 10px; 
+    border-radius: 10px; 
+    padding: 10px; 
+    width: 90px;
+    background-color: #5993d2;
+    cursor: pointer;
+    border: 2px solid black;
+  }
+  button {
+    color: #0979f2;
+  
+  }
+  button:hover {
+    background-color: #0979f2;
+    transition: 0.5s;
+    color: black;
+  }
+  a{
+    color:#9f00d4 ;
+  }
+  a:hover{
+    color: black;
+  }
+  button {
+    background-color: white; 
+    font-weight: bold; 
+    font-size: 15px;
+  }
+  .main{
+    margin-top: 25px;
+    margin-left: 35px;
+    margin-right: 35px;
+    background-color: #5993d2;
+    border: 2px solid black transparent;
+    border-radius: 8px;
+    height: 450px;
+    display: flex;
+    
+  }
+  .details{
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 450px;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 25px;
+  }
+  .voter h1{
+    color: #1757b8;
+    margin-left: 60px;
+  }
+  .photo{
+    height: 170px;
+    width: 170px;
+    background-color: black transparent;
+    border: 2px solid #9f00d4;
+    border-radius: 50% ;
+    margin-top: 10px;
+    margin-left: 65px;
+  }
+  #image{
+    height: 170px;
+    width: 170px;
+    border-radius: 50% ;
+    /* margin-top:1px;
+    margin-left:3px; */
+  }
+  #cimage{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+  #name_v{
+    margin-top: 50px;
+    
+    /* margin-left: 65px; */
+  }
+  #canidate_p
+  p{
+    font-size: 18px;
+    margin-left: -20px;
+  }
+  .candidate{
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 430px;
+    width: 820px;
+    margin-left: 50px;
+    margin-top: 46px;
+    /* display: flex; */
+  }
+  h2{
+    margin-left: 200px;
+    font-size: 45px;
+    color: #1757b8;
+  }
+  .register{
+    display: flex;
+    margin-top: 20px;
+  }
+  .firstdiv{
+    height: 300px;
+    width: 220px;
+    background-color: white;
+    border: 2px solid #DE7CFF;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-left: 55px;
+  }
+  .party1{
+    height: 150px;
+    width: 150px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid blue;
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+  .seconddiv{
+    height: 300px;
+    width: 220px;
+    background-color: white;
+    border: 2px solid #DE7CFF;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+  .party2{
+    height: 150px;
+    width: 150px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid blue;
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+  input{
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 3px;
+    height: 40px;
+    width: 130px;
+    margin-left: 45px;
+    margin-top: 80px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  input:hover{
+    background-color: #1757b8;
+    color: white;
+    transition: 0.5s;
+  }
+  
+  .thirddiv{
+    height: 300px;
+    width: 220px;
+    background-color: white;
+    border: 2px solid #DE7CFF;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+  .party3{
+    height: 150px;
+    width: 150px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid blue;
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+  
+  
+  
+  
+  
+  
+  

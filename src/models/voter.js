@@ -22,7 +22,25 @@ const voterSchema = new mongoose.Schema({
     voter_photo:{
         type:String,
         required:true
+    },
+    voter_password:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    voter_conpassword:{
+        type:String,
+        required:true
+    },
+    voter_phone:{
+        type:String,
+        required:true
+    },
+    hasVoted: {
+        type: Boolean,
+        default: false
     }
+    
   
 
     

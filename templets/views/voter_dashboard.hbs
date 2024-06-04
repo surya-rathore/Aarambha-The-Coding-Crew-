@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="voter_dashboard.css">
+    <style>
+        .voted {
+            color: green;
+        }
+    </style>
+</head>
+<body bgcolor="#5993d2">
+	<nav class="navbar">
+		<div class="navdiv">
+			<div class="logo"><a href="#">VOTEX</a> </div>
+			
+            <button><a href="./">Logout</a></button>
+            
+		</div>
+	</nav>
+    <div class="main">
+        <div class="details">
+            <div class="voter"><h1>Voter Details</h1></div>
+            <div class="photo">
+              <img src="/uploade/image/{{voter.photo}}" id="image" width="100px">
+              <p id="name_v">Name: {{voter.name}}</p><br>
+              <p>Voter ID: {{voter.voterid}}</p><br>
+              <p>Age: {{voter.age}}</p><br>
+              <p>Status: <span id="status" class="{{#if hasVoted}}voted{{/if}}">{{#if hasVoted}}Voted{{else}}Not Voted{{/if}}</span></p><br>
+            </div>
+        </div>
+
+        <div class="candidate">
+            <h2>Election Candidate</h2>
+            <div class="register">
+                {{#each candidates}}
+                <div class="firstdiv">
+                    <div class="party1">
+                        <img src="/uploade/cimage/{{this.candidate_photo}}" id="cimage" width="50px">
+                        <p id="canidate_p">Party Name: {{this.party_name}}</p><br>
+                    </div>
+                    <input type="submit" data-candidate-id="{{this._id}}" {{#if ../voter.hasVoted}}disabled{{/if}} value="VOTE" onclick="vote('{{this._id}}')">
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+  <script>
+    function vote(candidateId) {
+      fetch('/vote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ candidateId: candidateId }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          alert(data.message);
+          // Disable all vote buttons after voting
+          const buttons = document.querySelectorAll('input[type="submit"]');
+          buttons.forEach(button => button.disabled = true);
+          // Update the status text and style
+          const status = document.getElementById('status');
+          status.innerText = 'Voted';
+          status.classList.add('voted');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>

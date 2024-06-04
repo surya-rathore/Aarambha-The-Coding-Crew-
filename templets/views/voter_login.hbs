@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
 <link rel="stylesheet" href="voter_login.css">
 <style>
     .error{
@@ -18,18 +17,18 @@
             <div class="main">
                 <div class="content">
                     <h2>LogIn Here</h2>
-                    <form action="#" method="post" id="loginFrom">
-                        <input type="text" name="" placeholder="Voter_Id" id="Login_VoterId">
-                        <input type="password" name="" placeholder="Password" id="Login_Password">
+                    <form action="/voter_login" method="post" id="loginFrom">
+                        <input type="text" name="voter_id" placeholder="Voter_Id" id="Login_VoterId">
+                        <input type="password" name="voter_password" placeholder="Password" id="Login_Password">
                          <button class="btn" type="submit">
                             Login
                          </button>
                     </form>
-                    <p class="account">New User? <a href="registration.html">Register</a></p>
+                    <p class="account">New User? <a href="registration.html" >Register</a></p>
                      
                 </div>
                 <div class="form-img">
-                    <img src="./loginimage.png" alt="" id="image" >
+                    <img src="/public/images/voter_login.png" alt="" id="image" height="300px" width="500px" >
                 </div>
             </div>
         </div>

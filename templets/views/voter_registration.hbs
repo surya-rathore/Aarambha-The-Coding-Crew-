@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="voter_registration.css">
+</head>
+<body>
+    <div class="register-form">
+        <h1><b>Registration form</b></h1>
+        <div class="container">
+            <div class="main">
+                <div class="content">
+                    <form action="/voter_registration" method="POST">
+                        <input type="text" name="voter_name" placeholder="Full Name" required autofocus="">
+                        <input type="num" name="voter_age" placeholder="Enter Your Age" required autofocus="">
+                        <input type="num" name="voter_id" placeholder="Voter Id Number" required autofocus="">
+                        <input type="num" name="voter_aadhar" placeholder="Adhar Number" required autofocus="">
+                        <input type="num" name="voter_phone" placeholder="Phone Number" required autofocus="">
+                        <input type="password" name="voter_password" placeholder="Password" required autofocus="">
+                        <input type="password" name="voter_conpassword" placeholder="Confirm Password" required autofocus="">
+                        <input type="file" name="photo">
+                         <button class="btn" type="submit">
+                            Register
+                         </button><br><br>
+                        
+                    </form>
+                    <p class="account"><b>Voter already exists?</b> <a href="voter_login">Login here</a></p>
+                     
+                </div>
+                <div class="form-img">
+                    <img src="/public/images/admin_login_image.png" alt="" height="300px" width="800px">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

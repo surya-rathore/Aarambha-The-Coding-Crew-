@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="admin_login.css">
+<style>
+    .error{
+        border: 1px solid red;
+    }
+</style>
+</head>
+<body>
+    <div class="login-form">
+        <h1><b>Admin Login</b></h1>
+        <div class="container">
+            <div class="main">
+                <div class="content">
+                    <h2>LogIn Here</h2>
+                    <form action="/admin_login" method="post">
+                        <input type="text" name="admin_id" placeholder="Votex_Id" id="Login_VoterId">
+                        <input type="password" name="admin_password" placeholder="Password" id="Login_Password">
+                         <button class="btn" type="submit">
+                            Login
+                         </button>
+                    </form>
+                  
+                     
+                </div>
+                <div class="form-img">
+                    <img src="/public/images/admin_login_image.png" alt="" id="image" height="300px" width="500px" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

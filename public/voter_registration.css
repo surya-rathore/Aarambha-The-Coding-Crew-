@@ -1,0 +1,164 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+.register-form{
+    position: fixed;
+    min-height: 100vh;
+    margin-left: 350px;
+    z-index: 0;
+    background: white;
+    padding: 10px;
+    justify-content: center;
+    display: grid;
+    font-family: 'poppins',sans-serif;
+    grid-template-rows: 1fr auto 1fr;
+    align-items: center;
+    
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 10px ;
+    -webkit-box-shadow: 10px 8px 51px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 8px 51px -6px rgba(0,0,0,0.75);
+    box-shadow: 10px 8px 51px -6px rgba(0,0,0,0.75)
+}
+
+.register-form h1{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color:#144866;
+    font-family: 'poppins',sans-serif;
+
+}
+.register-form h2{
+    line-height: 40px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #144866;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.register-form .main{
+    position: relative;
+    display: flex;
+}
+.content{
+    flex-basis: 50%;
+    padding: 3rem 3rem;
+    background: #e5f8f7;
+    box-shadow: 2px 9px 49px -17px rgba(0,0,0,0.1);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
+.form-img{
+    flex-basis: 50%;
+    background: #02a49c;
+    background-size: cover;
+    padding: 40px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
+    display: grid;
+}
+.form-img img{
+    max-width: 100%;
+}
+p{
+    color:#02a49c;
+    font-size: 16px;
+    line-height: 25px;
+    opacity: 0.6;
+    text-align: center;
+}
+.btn,button,input{
+    border-radius: 35px;
+}
+.btn:hover,
+button:hover{
+  color:  #272346;
+    transition: 0.5s ease;
+    background-color: white;
+}
+a{
+    text-decoration: none;
+}
+.register-form form{
+    margin: 30px 0;
+}
+.register-form input{
+    outline: none;
+    margin-bottom: 15px;
+    font-stretch: 16px;
+    color: #999;
+    text-align: left;
+    padding: 14px 20px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    background: #ebeef0;    
+    transition: 0.3s ease;
+    border: 2px solid black;
+}
+.register-form input:focus{
+    background: transparent;
+    border: 1px solid #1b7570;
+}
+
+.register-form button{
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+    background: #1b7570;
+    border: none;
+    padding: 14px 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border: 2px solid black;
+}
+.register-form button:hover{
+    color: black;
+    background-color: white;
+    
+}
+p.account a{
+    color: #02a49c;
+}
+p{
+    color: rgb(73, 72, 72);
+}
+p.account a:hover{
+ text-decoration: underline;
+}
+@media(max-width:900px){
+    .register-form .main{
+        flex-direction: column;
+    }
+    .register-form form{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+    }
+    .form-img{
+        border-radius: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        order: 2;
+    }
+    .content{
+        order: 1;
+        border-radius: 0;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+}
+
+}
