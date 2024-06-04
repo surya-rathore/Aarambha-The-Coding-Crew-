@@ -12,9 +12,9 @@ require("./db/voterconn");
 const Voter = require("./models/voter");
 const Candidate = require("./models/candidate");
 require("./db/candidateconn");
-
+ 
 const Storege =multer.diskStorage({
-  destination:"public/upload/image",
+      destination:"public/upload/image",
   filename:(req,file,cb)=>{
     cb(null,file.originalname)
   }
