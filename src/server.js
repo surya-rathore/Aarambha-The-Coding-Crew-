@@ -115,7 +115,7 @@ app.post("/voter_registration",upload.single("photo"),async(req,res)=>{
 // voter login post
 app.post("/voter_login", async (req, res) => {
   try {
-    const id = req.body.vid;
+     const id = req.body.vid;
     const password = req.body.vpass;
 
     const voter = await Voter.findOne({ voterid: id });
