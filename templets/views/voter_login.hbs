@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
 <link rel="stylesheet" href="voter_login.css">
 <style>
     .error{
@@ -17,22 +18,22 @@
             <div class="main">
                 <div class="content">
                     <h2>LogIn Here</h2>
-                    <form action="/voter_login" method="post" id="loginFrom">
-                        <input type="text" name="voter_id" placeholder="Voter_Id" id="Login_VoterId">
+                    <form action="/voter_login" method="POST" id="loginFrom">
+                        <input type="text" name="voter_id" placeholder="Voter Id" id="Login_VoterId">
                         <input type="password" name="voter_password" placeholder="Password" id="Login_Password">
                          <button class="btn" type="submit">
                             Login
                          </button>
                     </form>
-                    <p class="account">New User? <a href="registration.html" >Register</a></p>
+                    <p class="account">New User? <a href="voter_registration.html">Register</a></p>
                      
                 </div>
                 <div class="form-img">
-                    <img src="/public/images/voter_login.png" alt="" id="image" height="300px" width="500px" >
+                    <img id="loginimag" src="/public/images/admin_login_image.png" alt="">
                 </div>
             </div>
         </div>
     </div>
-    <script src="voter_login.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

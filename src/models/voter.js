@@ -2,39 +2,38 @@ const mongoose =require("mongoose");
 
 const voterSchema = new mongoose.Schema({
 
-    voter_name:{
+    vname:{
         type:String,
         required:true
     },
-    voter_age:{
+    vage:{
         type:Number,
         required:true,
     },
-    voter_voterid:{
+    vid:{
         type:String,
         required:true,
         unique:true
     },
-    voter_addhar:{
-        type:String,
+    vadhar:{
+        type:Number,
         required:true,
     },
-    voter_photo:{
-        type:String,
-        required:true
-    },
-    voter_password:{
+    vpassword:{
         type:String,
         required:true,
         unique:true
     },
-    voter_conpassword:{
+    vconpassword:{
         type:String,
         required:true
     },
-    voter_phone:{
+    vphone:{
         type:String,
         required:true
+    },
+    vphoto:{
+        type:String
     },
     hasVoted: {
         type: Boolean,
@@ -46,4 +45,4 @@ const voterSchema = new mongoose.Schema({
     
 });
 const Voter = new mongoose.model("Voter",voterSchema);
-module.exports = Voter;
+module.exports=Voter;

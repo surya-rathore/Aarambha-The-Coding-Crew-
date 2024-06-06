@@ -13,14 +13,14 @@
             <div class="main">
                 <div class="content">
                     <h2>Register Here</h2>
-                    <form action="/candidate_registration" method="POST">
-                        <input type="text" name="Candidate_Name" placeholder="Candidate_Name" required autofocus="">
-                        <input type="num" name="Candidate_Age" placeholder="Candidate_Age" required autofocus="">
-                        <input type="text" name="Candidate_Party" placeholder="Candidate_Party" required autofocus="">
-                        <input type="num" name="Candidate_Aadhar" placeholder="Candidate_Aadhar" required autofocus="">
-                        <input type="num" name="Candidate_VoterId" placeholder="Candidate_VoterId" required autofocus="">
-                        <input type="num" name="Phone_Number" placeholder="Phone_Number" required autofocus="">
-                        <input type="file" name="photo" id="photo" >
+                    <form action="/candidate_registration" method="POST" enctype="multipart/form-data">
+                        <input type="text" name="cname" placeholder="Candidate_Name" required autofocus="">
+                        <input type="num" name="cage" placeholder="Candidate_Age" required autofocus="">
+                        <input type="text" name="cparty" placeholder="Candidate_Party" required autofocus="">
+                        <input type="num" name="cadhar" placeholder="Candidate_Aadhar" required autofocus="">
+                        <input type="num" name="cvoterId" placeholder="Candidate_VoterId" required autofocus="">
+                        <input type="num" name="cphone" placeholder="Phone_Number" required autofocus="">
+                        <input type="file" name="cphoto" id="photo" >
                          <button class="btn" type="submit">
                             Register
                          </button><br><br>
@@ -30,7 +30,7 @@
                      
                 </div>
                 <div class="form-img">
-                    <img src="/public/images/admin_login_image.png" alt="" height="350px" width="900px">
+                    <img src="/public/images/candidate_registration_image.png" alt="" height="350px" width="900px">
                 </div>
             </div>
         </div>

@@ -2,32 +2,37 @@ const mongoose =require("mongoose");
 
 const candidateSchema = new mongoose.Schema({
 
-    candidate_name:{
+    cname:{
         type:String,
         required:true
     },
-    candidate_age:{
+    cage:{
         type:Number,
         required:true,
     },
-    candidate_voterid:{
+    cvoterid:{
         type:String,
         required:true,
         unique:true
     },
-    candidate_addhar:{
-        type:String,
-        required:true,
-    },
-    candidate_party:{
+    cadhar:{
         type:String,
         required:true,
         unique:true
     },
-    candidate_photo:{
-         type:String,
-         requred:true
+    cparty:{
+        type:String,
+        required:true,
+        unique:true
     },
+    cphoto:{
+         type:String
+    },
+    cphone:{
+        type:String,
+        requred:true,
+        unique:true
+   },
     votecount:{
         type:Number,
         default:0
@@ -36,4 +41,4 @@ const candidateSchema = new mongoose.Schema({
     
 });
 const Candidate = new mongoose.model("Candidate",candidateSchema);
-module.exports = Candidate;
+module.exports= Candidate;

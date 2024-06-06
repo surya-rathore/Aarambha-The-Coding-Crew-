@@ -23,10 +23,11 @@
         <div class="details">
             <div class="voter"><h1>Voter Details</h1></div>
             <div class="photo">
-              <img src="/uploade/image/{{voter.photo}}" id="image" width="100px">
-              <p id="name_v">Name: {{voter.name}}</p><br>
-              <p>Voter ID: {{voter.voterid}}</p><br>
-              <p>Age: {{voter.age}}</p><br>
+              <img src="/uploade/image/{{voter.vphoto}}" id="image" width="100px">
+
+              <p id="name_v">Name: {{voter.vname}}</p><br>
+              <p>Voter ID: {{voter.vid}}</p><br>
+              <p>Age: {{voter.vage}}</p><br>
               <p>Status: <span id="status" class="{{#if hasVoted}}voted{{/if}}">{{#if hasVoted}}Voted{{else}}Not Voted{{/if}}</span></p><br>
             </div>
         </div>
@@ -37,8 +38,9 @@
                 {{#each candidates}}
                 <div class="firstdiv">
                     <div class="party1">
-                        <img src="/uploade/cimage/{{this.candidate_photo}}" id="cimage" width="50px">
-                        <p id="canidate_p">Party Name: {{this.party_name}}</p><br>
+                        {{!-- <img src="/uploade/cimage/{{this.cphoto}}" id="cimage" width="50px"> --}}
+                        <img src="/uploade/cimage/{{candidate.cphoto}}" id="cimage"">
+                        <p id="canidate_p">Party Name: {{this.cparty}}</p><br>
                     </div>
                     <input type="submit" data-candidate-id="{{this._id}}" {{#if ../voter.hasVoted}}disabled{{/if}} value="VOTE" onclick="vote('{{this._id}}')">
                 </div>

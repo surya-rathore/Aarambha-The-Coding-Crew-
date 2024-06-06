@@ -1,44 +1,76 @@
+
 const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
 const app = express();
+const fs = require("fs");
 const multer=require("multer");
 const staticPath = path.join(__dirname, "../public");
 const templetsPath = path.join(__dirname, "../templets/partials");
 const viewsPath = path.join(__dirname, "../templets/views");
 const port = process.env.PORT ||4500;
 const { json } = express.json();
+
 require("./db/voterconn");
 const Voter= require("./models/voter");
 const Candidate = require("./models/candidate");
 require("./db/candidateconn");
+const bcrypt = require('bcrypt');
+const { MongoClient, GridFSBucket } = require('mongodb');
+const mongoose = require('mongoose')
+var conn = mongoose.connection;
+var gfsbucket;
+var gfsbucketsave;
 
-const Storage=multer.diskStorage({
-  destination:"public/uploade/image",
-  filename:(req,file,cb)=>{
-    cb(null, file.originalname);
-  }
+conn.once("open", () => {
+  gfsbucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: "post",
+  });
 });
-const Save=multer.diskStorage({
-  destination:"public/uploade/cimage",
-  filename:(req,file,cb)=>{
-    cb(null, file.originalname);
-  }
-});
-const upload=multer({
-       storage:Storage
-});
-const saved=multer({
-       storage:Save
+conn.once("open", () => {
+  gfsbucketsave = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: "save",
+  });
 });
 
-// const session = require('express-session');
 
-// app.use(session({
-//   secret: 'your-secret-key',
-//   resave: false,
-//   saveUninitialized: false
-// }));
+const storage1 = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/uploade/image");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix =
+      Date.now() +
+      "-" +
+      Math.round(Math.random() * 1e9) +
+      path.extname(file.originalname);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
+  },
+});
+const Save = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/uploade/cimage");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix =
+      Date.now() +
+      "-" +
+      Math.round(Math.random() * 1e9) +
+      path.extname(file.originalname);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
+  },
+});
+const upload1 = multer({ storage: storage1 });
+
+const upload2= multer({storage: Save});
+
+const session = require('express-session');
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
 
 
 
@@ -64,6 +96,14 @@ app.get("/voter_login",(req,res)=>{
 app.get("/work",(req,res)=>{
   res.render("work");
 });
+//contact with us
+// app.get("/contact",(req,res)=>{
+//   res.render("contact");
+// });
+app.get("/voter_dashboard",(req,res)=>{
+  res.render("voter_dashboard");
+});
+
 app.get("/contact",(req,res)=>{
   res.render("contact");
 });
@@ -80,42 +120,46 @@ app.get("/voter_registration",(req,res)=>{
 //candidate registration 
 app.get("/candidate_registration",(req,res,next)=>{
   res.render("candidate_registration");
-})
-
-//registration post 
-app.post("/voter_registration",upload.single("photo"),async(req,res)=>{
-    try{
-      const password=req.body.voter_password;
-      const conpassword=req.body.voter_conpassword;
-      if(password===conpassword){
-        const newVoters =new Voter({
-          voter_name:req.body.voter_name,
-          voter_age:req.body.voter_age,
-          voter_voterid:req.body.voter_id,
-          poter_addhar:req.body.voter_aadhar,
-          poter_phone:req.body.voter_phone,
-          voter_password:req.body.password,
-          voter_conpassword:req.body.voter_conpassword,
-          voter_photo:req.file.filename
-
-         })
-         const voter = await newVoters.save();
-         res.status(200).render("index");
-      }else{
-        res.status(400).send("invalid id and password");
-      }
-
-    }catch(error){
-      res.status(400).send(error);
-    }
 });
 
+
+// registration post
+app.post("/voter_registration", upload1.single("vphoto"), async (req, res) => {
+  try {
+    const password = req.body.vpassword;
+    const conpassword = req.body.vconpassword;
+
+    if (password === conpassword) {
+      const newVoter = new Voter({
+        vname: req.body.vname,
+        vage: req.body.vage,
+        vid: req.body.vid,
+        vadhar: req.body.vadhar,
+        vphone: req.body.vphone,
+        vpassword: req.body.vpassword,
+        vconpassword: req.body.vconpassword,
+        vphoto:req.file.filename
+        
+      });
+
+      
+      const voter = await newVoter.save();
+      res.status(201).render("index");
+      // const candi = await candidate.finone({vid:id})
+      res.status(201).render("voter_dashboard",{voter});
+    } else {
+      res.status(400).send( "message Passwords do not match" );
+    }
+  } catch (error) {
+    res.status(500).send(error);
+}
+});
 
 // voter login post
 // voter login post
 app.post("/voter_login", async (req, res) => {
   try {
-     const id = req.body.vid;
+    const id = req.body.vid;
     const password = req.body.vpass;
 
     const voter = await Voter.findOne({ voterid: id });
@@ -135,12 +179,10 @@ app.post("/voter_login", async (req, res) => {
 
 
 
-
 // admin login post
 app.post("/admin_login", (req, res) => {
   const id = "sahu";
-  const password = "123";
-  console.log(req.body)
+  const password = "4321";
   if (req.body.admin_id ===id && req.body.admin_password === password) {
     res.render("candidate_registration");
   } else {
@@ -152,27 +194,30 @@ app.post("/admin_login", (req, res) => {
 
 
 // candidate post
-app.post("/candidate_registration", saved.single("photo"), async (req, res) => {
+app.post("/candidate_registration", upload2.single("cphoto"), async (req, res) => {
   try {
     const newCandidate = new Candidate({
-      candidate_name: req.body.Candidate_Name,
-      candidate_age: req.body.Candidate_Age,
-      candidate_voterid: req.body.Candidate_VoterId,
-      candidate_addhar: req.body.Candidate_Aadhar,
-      candidate_party: req.body.Candidate_party,
-      candidate_photo: req.body.Candidate_photo
+      cname: req.body.cname,
+      cage: req.body.cage,
+      cvoterid: req.body.cvoterId,
+      cadhar: req.body.cadhar,
+      cparty: req.body.cparty,
+      cphoto: req.file.filename,
+      cphone: req.body.cphone
     });
-
-    const candidate= await newCandidate.save();
     
-    console.log(candidate);
-    const candidates = await Candidate.find(); // Fetch all candidates
-    res.status(201).render("candidate_registartion", { candidates });
-
+    const candidate = await newCandidate.save();
+    res.status(201).render("candidate_registration");
+    // Render "voter_dashboard" with the saved candidate
+    res.status(201).render("voter_dashboard", { candidate });
   } catch (error) {
     res.status(400).send(error);
   }
 });
+
+
+
+
 
 
 
@@ -209,5 +254,3 @@ app.post("/vote", async (req, res) => {
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
-
-

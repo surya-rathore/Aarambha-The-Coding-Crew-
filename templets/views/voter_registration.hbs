@@ -11,15 +11,15 @@
         <div class="container">
             <div class="main">
                 <div class="content">
-                    <form action="/voter_registration" method="POST">
-                        <input type="text" name="voter_name" placeholder="Full Name" required autofocus="">
-                        <input type="num" name="voter_age" placeholder="Enter Your Age" required autofocus="">
-                        <input type="num" name="voter_id" placeholder="Voter Id Number" required autofocus="">
-                        <input type="num" name="voter_aadhar" placeholder="Adhar Number" required autofocus="">
-                        <input type="num" name="voter_phone" placeholder="Phone Number" required autofocus="">
-                        <input type="password" name="voter_password" placeholder="Password" required autofocus="">
-                        <input type="password" name="voter_conpassword" placeholder="Confirm Password" required autofocus="">
-                        <input type="file" name="photo">
+                    <form action="/voter_registration" method="POST" enctype="multipart/form-data" en>
+                        <input type="text" name="vname" placeholder="Full Name" required autofocus="">
+                        <input type="num" name="vage" placeholder="Enter Your Age" required autofocus="">
+                        <input type="num" name="vid" placeholder="Voter Id Number" required autofocus="">
+                        <input type="num" name="vadhar" placeholder="Adhar Number" required autofocus="">
+                        <input type="num" name="vphone" placeholder="Phone Number" required autofocus="">
+                        <input type="password" name="vpassword" placeholder="Password" required autofocus="">
+                        <input type="password" name="vconpassword" placeholder="Confirm Password" required autofocus="">
+                        <input type="file" name="vphoto" required>
                          <button class="btn" type="submit">
                             Register
                          </button><br><br>
